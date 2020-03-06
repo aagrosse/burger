@@ -1,0 +1,80 @@
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+        <div class="col-sm-6">
+        <image src="https://media.giphy.com/media/3o7buhm1O1bOJV4ZWM/giphy.gif" class = "burgergif"></image>
+        </div>
+        <div class="col-sm-6">
+        <h1>Eat-da-Burger</h1>
+        <p>Burger Orders for Pickup.</p>
+        <br>
+        <h2>Order a Burger or Sandwich</h2>
+        <panel>
+            <form class="create-form">
+                <div class="form-group">
+                    <form class="form-inline my-2 my-lg-0 create-form">
+            <input class="form-control mr-sm-2" name="name" id="newBurger" type="text" placeholder="Burger to Add"
+                required>
+            <button class="btn btn-warning my-2 my-sm-0 btn-add" type="submit">Add Burger</button>
+        </form>
+                </div>
+            </form>
+        </panel>
+    </div>
+    </div>
+</div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="leftside"><strong>Order Up!</strong>
+                    <p>Burgers ready to devour</p>
+                </div>
+                <div class="panel-body">
+
+                    <ul>
+                        {{#each burgers}}
+                        {{#unless devoured}}
+
+                        <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                        <button type="button" class="eatburger btn btn-warning" id="eatbutton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span>Devour!</span></button>
+                        <hr>
+                        {{/unless}}
+                        {{/each}}
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="rightside"><strong>Burgers Devoured</strong>
+                    <p>Remove from log if your feeling guilty</p>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <form action="/{{this.id}}?_method=DELETE" method="POST"></form>
+                        <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                        
+                        <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button></form>
+                        <hr>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--endrow -->
+</div>
+</div>
+<!--endcontainer -->
