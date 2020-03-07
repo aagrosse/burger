@@ -20,7 +20,7 @@ MySQL, Node, Express, Handlebars and a homemade ORM
 ![image](./public/assets/img/App2.PNG)
 
 ### Functionality
-![image](./public/assets/img/burger.GIF)
+![image](./public/assets/img/burger.gif)
 
 
 ## Contributing
